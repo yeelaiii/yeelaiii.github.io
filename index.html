@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Elijah Soon | Portfolio</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
   <style>
     :root {
       --main-bg: #ffffff;
@@ -26,6 +27,7 @@
       font-family: var(--font);
       line-height: 1.6;
       padding: 40px 20px;
+      overflow-x: hidden;
     }
 
     header {
@@ -55,6 +57,8 @@
       border-radius: 8px;
       padding: 30px;
       margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(40px);
     }
 
     h2 {
@@ -101,33 +105,29 @@
   </style>
 </head>
 <body>
-
   <div class="container">
-
     <header>
-      <h1>Elijah Soon</h1>
-      <p>Software Developer · Cybersecurity Enthusiast · National Athlete</p>
+      <h1 id="name">Elijah Soon</h1>
+      <p id="tagline">Software Developer · Cybersecurity Enthusiast · National Athlete</p>
     </header>
 
-    <div class="section">
+    <div class="section" id="about">
       <h2>About Me</h2>
       <p>
-        I'm a Computer Engineering student and a national weightlifter representing Singapore.
-        I previously interned as a software developer at the Ministry of Defence, where I built automation tools
-        to streamline contract management processes.
+        I'm a Computer Engineering student with a strong interest in cybersecurity and software development. I recently completed a software development internship at the Ministry of Defence, where I designed automation tools to streamline contract management workflows using scripting and Excel.
       </p>
       <p>
-        I'm passionate about cybersecurity and automation. Currently preparing for the
-        <strong>OSCP (PEN-200)</strong> certification, and proficient in Java, Python, and network architecture
-        (Cisco Certified Network Associate).
+        My core focus is on building secure, efficient systems. I'm currently preparing for the <strong>OSCP (PEN-200)</strong> certification, and I’m experienced with Java, Python, and network design (Cisco Certified Network Associate).
       </p>
       <p>
-        Outside of tech, I enjoy Olympic weightlifting, robotics (2017 VEX World Champion), and solving problems
-        through engineering.
+        Outside of tech, I’m also a <a href="https://www.swf.org.sg/athletes/elijah-soon" target="_blank">national Olympic weightlifter for Singapore</a>. This experience has instilled in me a high level of discipline, focus, and performance under pressure—qualities I bring into every team and technical challenge I take on.
+      </p>
+      <p>
+        I'm also the 2017 VEX Robotics World Champion, and I continue to enjoy solving engineering problems across both hardware and software domains.
       </p>
     </div>
 
-    <div class="section">
+    <div class="section" id="skills">
       <h2>Skills</h2>
       <ul>
         <li>• Programming: Java, Python, JavaScript</li>
@@ -137,7 +137,7 @@
       </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="projects">
       <h2>Projects</h2>
       <ul>
         <li>
@@ -155,16 +155,40 @@
       </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:elijahjie@gmail.com">elijahjie@gmail.com</a></p>
       <p>GitHub: <a href="https://github.com/yeelaiii" target="_blank">github.com/yeelaiii</a></p>
     </div>
 
     <footer>
-      © 2025 Elijah Soon — Built with clean HTML & CSS. Hosted on GitHub Pages.
+      © 2025 Elijah Soon — Built with HTML, CSS, GSAP. Hosted on GitHub Pages.
     </footer>
-
   </div>
+
+  <script>
+    gsap.to(".section", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.3,
+      ease: "power3.out"
+    });
+
+    gsap.from("#name", {
+      y: -50,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power4.out"
+    });
+
+    gsap.from("#tagline", {
+      y: 20,
+      opacity: 0,
+      delay: 0.4,
+      duration: 1,
+      ease: "power2.out"
+    });
+  </script>
 </body>
 </html>
