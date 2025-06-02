@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elijah Soon | Portfolio</title>
+  <title>Elijah Soon – Cyber & Code</title>
   <style>
     :root {
-      --main-bg: #ffffff;
+      --main-bg: #fdfdfd;
       --main-text: #1e1e1e;
       --accent: #004080;
       --border: #ddd;
-      --section-bg: #f8f9fa;
+      --section-bg: #ffffffcc;
+      --glass-blur: blur(8px);
     }
 
     [data-theme="dark"] {
-      --main-bg: #121212;
-      --main-text: #f0f0f0;
+      --main-bg: #0f0f0f;
+      --main-text: #f5f5f5;
       --accent: #66b2ff;
       --border: #333;
-      --section-bg: #1e1e1e;
+      --section-bg: #1e1e1ecc;
     }
 
     * {
@@ -28,23 +29,26 @@
     }
 
     body {
+      background: linear-gradient(135deg, #eef2f3, #cfd9df);
       background-color: var(--main-bg);
       color: var(--main-text);
       font-family: 'Segoe UI', sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
-      transition: background 0.3s, color 0.3s;
+      transition: background 0.5s, color 0.5s;
+      scroll-behavior: smooth;
     }
 
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
+      padding: 20px 40px;
       background: var(--section-bg);
       position: sticky;
       top: 0;
       z-index: 10;
+      backdrop-filter: var(--glass-blur);
       border-bottom: 1px solid var(--border);
     }
 
@@ -52,11 +56,26 @@
       color: var(--main-text);
       margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
+      position: relative;
     }
 
-    .navbar a:hover {
-      color: var(--accent);
+    .navbar a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: right;
+    }
+
+    .navbar a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
 
     .toggle-btn {
@@ -69,71 +88,76 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
 
     header {
       text-align: center;
-      margin-bottom: 60px;
-      animation: fadeIn 1.5s ease-in-out;
+      margin-bottom: 80px;
     }
 
     header img {
-      width: 140px;
-      height: 140px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      margin-bottom: 20px;
       object-fit: cover;
-      border: 3px solid var(--accent);
-      animation: zoomIn 1s ease;
+      border: 4px solid var(--accent);
+      margin-bottom: 20px;
     }
 
     header h1 {
-      font-size: 3rem;
-      font-weight: 600;
+      font-size: 3.2rem;
+      font-weight: 700;
     }
 
     header p {
+      font-size: 1.2rem;
       color: var(--main-text);
-      font-size: 1.1rem;
-      margin-top: 10px;
+      opacity: 0.8;
     }
 
     .section {
       background-color: var(--section-bg);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 30px;
-      margin-bottom: 40px;
-      opacity: 0;
-      transform: translateY(30px);
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 50px;
+      backdrop-filter: var(--glass-blur);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
       animation: fadeSlideUp 1s ease forwards;
     }
 
-    .section:nth-child(odd) {
-      animation-delay: 0.2s;
-    }
-
-    .section:nth-child(even) {
-      animation-delay: 0.4s;
-    }
-
     h2 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
+      font-size: 1.7rem;
+      margin-bottom: 20px;
       color: var(--accent);
     }
 
     ul {
-      list-style-type: none;
+      list-style: none;
       padding-left: 0;
     }
 
-    li, p {
+    li {
       font-size: 1rem;
-      color: var(--main-text);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .project-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
     a {
@@ -149,32 +173,22 @@
       text-align: center;
       font-size: 0.9rem;
       color: #777;
-      margin-top: 50px;
+      margin-top: 80px;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       .section {
-        padding: 20px;
+        padding: 25px;
       }
     }
 
     @keyframes fadeSlideUp {
-      0% { opacity: 0; transform: translateY(30px); }
+      0% { opacity: 0; transform: translateY(40px); }
       100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    @keyframes zoomIn {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
@@ -192,43 +206,42 @@
   <div class="container">
     <header>
       <img src="elijah-profile.jpg" alt="Elijah Soon profile image">
-      <h1 id="name">Elijah Soon</h1>
-      <p id="tagline">Software Developer · Cybersecurity Enthusiast · National Athlete</p>
+      <h1>Elijah Soon</h1>
+      <p>Cybersecurity · Full Stack · National Athlete</p>
     </header>
 
     <div class="section" id="about">
       <h2>About Me</h2>
-      <p>
-        I'm a Computer Engineering student with a strong interest in cybersecurity and software development. I recently completed a software development internship at the Ministry of Defence, where I designed automation tools to streamline contract management workflows using scripting and Excel.
-      </p>
-      <p>
-        My core focus is on building secure, efficient systems. I'm currently preparing for the <strong>OSCP (PEN-200)</strong> certification, and I’m experienced with Java, Python, and network design (Cisco Certified Network Associate).
-      </p>
-      <p>
-        Outside of tech, I’m also a <a href="https://www.swf.org.sg/athletes/elijah-soon" target="_blank">national Olympic weightlifter for Singapore</a>. This experience has instilled in me a high level of discipline, focus, and performance under pressure—qualities I bring into every team and technical challenge I take on.
-      </p>
-      <p>
-        I'm also the 2017 VEX Robotics World Champion, and I continue to enjoy solving engineering problems across both hardware and software domains.
-      </p>
+      <p>I'm a Computer Engineering student focused on cybersecurity and full-stack development. During my internship at the Ministry of Defence, I built tools to automate contract processes and improve operational security.</p>
+      <p>Currently preparing for the OSCP (PEN-200) certification, I bring skills in Java, Python, and network architecture (CCNA) with a deep interest in building secure and elegant systems.</p>
+      <p>As a <a href="https://www.swf.org.sg/athletes/elijah-soon" target="_blank">national Olympic weightlifter</a>, I carry the same discipline and intensity into every tech project I work on.</p>
     </div>
 
     <div class="section" id="skills">
       <h2>Skills</h2>
       <ul>
         <li>• Programming: Java, Python, JavaScript</li>
-        <li>• Networking: CCNA Certified, Network Design</li>
-        <li>• Tools: Excel Automation, PowerPoint, Git</li>
-        <li>• Cybersecurity: Penetration Testing (OSCP in progress)</li>
+        <li>• Frontend: HTML, CSS, Responsive Design</li>
+        <li>• Backend: Node.js, MongoDB (beginner)</li>
+        <li>• Networking: Cisco Certified (CCNA)</li>
+        <li>• Cybersecurity: OSCP track (PEN-200)</li>
       </ul>
     </div>
 
     <div class="section" id="projects">
       <h2>Projects</h2>
-      <ul>
-        <li><strong>FELIX (FPGA Reaction Game)</strong> — <a href="https://github.com/yeelaiii/felix-fpga" target="_blank">View Code</a></li>
-        <li><strong>Food Waste Predictor</strong> — <a href="https://github.com/yeelaiii/food-waste-predictor" target="_blank">View Code</a></li>
-        <li><strong>Bond Pricing App (Android)</strong> — <a href="https://github.com/yeelaiii/bond-app" target="_blank">View Code</a></li>
-      </ul>
+      <div class="project-card">
+        <strong>FELIX – FPGA Reaction Game</strong><br>
+        <a href="https://github.com/yeelaiii/felix-fpga" target="_blank">View Code</a>
+      </div>
+      <div class="project-card">
+        <strong>Food Waste Predictor</strong><br>
+        <a href="https://github.com/yeelaiii/food-waste-predictor" target="_blank">View Code</a>
+      </div>
+      <div class="project-card">
+        <strong>Bond Pricing App (Android)</strong><br>
+        <a href="https://github.com/yeelaiii/bond-app" target="_blank">View Code</a>
+      </div>
     </div>
 
     <div class="section" id="contact">
@@ -239,15 +252,15 @@
     </div>
 
     <footer>
-      © 2025 Elijah Soon — Built with HTML, CSS. Hosted on GitHub Pages.
+      © 2025 Elijah Soon — Built with love, discipline, and HTML.
     </footer>
   </div>
 
   <script>
     function toggleTheme() {
       const body = document.body;
-      const currentTheme = body.getAttribute("data-theme");
-      body.setAttribute("data-theme", currentTheme === "light" ? "dark" : "light");
+      const current = body.getAttribute("data-theme");
+      body.setAttribute("data-theme", current === "light" ? "dark" : "light");
     }
   </script>
 </body>
