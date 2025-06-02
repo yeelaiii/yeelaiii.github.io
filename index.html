@@ -13,17 +13,8 @@
       --section-bg: rgba(30,30,30,0.9);
       --glass-blur: blur(8px);
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       background: radial-gradient(circle at top, #121212 0%, #0f0f0f 100%);
       color: var(--main-text);
@@ -31,7 +22,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
     .navbar {
       display: flex;
       justify-content: center;
@@ -47,7 +37,6 @@
       border-bottom: 1px solid var(--border);
       animation: slideDown 0.8s ease forwards;
     }
-
     .navbar a {
       color: var(--main-text);
       margin: 0 25px;
@@ -56,7 +45,6 @@
       position: relative;
       font-size: 1rem;
     }
-
     .navbar a::after {
       content: "";
       position: absolute;
@@ -69,20 +57,17 @@
       transition: transform 0.3s ease-in-out;
       transform-origin: right;
     }
-
     .navbar a:hover::after,
     .navbar a.active::after {
       transform: scaleX(1);
       transform-origin: left;
     }
-
     .container {
       max-width: 1100px;
       margin: 0 auto;
       padding-top: 100px;
       animation: fadeSlideUp 1s ease forwards;
     }
-
     header.hero {
       height: 90vh;
       display: flex;
@@ -94,21 +79,18 @@
       background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a);
       animation: fadeSlideUp 1.2s ease forwards;
     }
-
     header.hero h1 {
       font-size: 4rem;
       font-weight: 800;
       color: var(--main-text);
       animation: fadeInUp 1.5s ease forwards;
     }
-
     header.hero p {
       font-size: 1.4rem;
       color: var(--accent);
       margin: 20px 0;
       animation: fadeInUp 1.8s ease forwards;
     }
-
     header.hero img {
       width: 150px;
       height: 150px;
@@ -119,7 +101,6 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
       animation: fadeInUp 1.2s ease forwards;
     }
-
     .section {
       background-color: var(--section-bg);
       border: 1px solid var(--border);
@@ -130,13 +111,11 @@
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
       animation: fadeSlideUp 1s ease forwards;
     }
-
     h2 {
       font-size: 1.7rem;
       margin-bottom: 20px;
       color: var(--accent);
     }
-
     .project-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -144,24 +123,16 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     }
-
-    button {
-      transition: transform 0.2s ease;
-    }
-    button:active {
-      transform: scale(0.95);
-    }
-
+    button { transition: transform 0.2s ease; }
+    button:active { transform: scale(0.95); }
     @keyframes fadeSlideUp {
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes slideDown {
       0% { opacity: 0; transform: translateY(-30px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -169,6 +140,56 @@
   </style>
 </head>
 <body>
-  <!-- Your body content remains the same -->
+  <nav class="navbar">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header class="hero">
+    <img src="elijah.jpg" alt="Elijah Soon">
+    <h1>Elijah Soon</h1>
+    <p>Cybersecurity & Software Engineering</p>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>
+        I’m a Computer Engineering student and aspiring cybersecurity specialist. I’ve interned at MINDEF as a software developer and built automation tools for contract management.<br><br>
+        I’m currently preparing for the OSCP certification and hold a CCNA in networking. My strengths are in Python, Java, and systems engineering.<br><br>
+        Outside of tech, I’m a national weightlifter for Singapore – a discipline that trains my mindset daily. See more on <a href="https://www.swf.org.sg/athletes/elijah-soon" target="_blank" style="color: var(--accent);">my SWF profile</a>.
+      </p>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="project-card">
+          <h3>🧠 FELIX – FPGA Reaction Game</h3>
+          <p>A real-time LED memory game using FSM and a custom CPU on Alchitry FPGA.</p>
+          <a href="https://github.com/50002-computation-structures/1d-project-cl01-group-11/blob/main/2025-50002-Group11.alp" target="_blank" style="color: var(--accent);">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>🍽️ Food Waste Predictor</h3>
+          <p>ML app built with Flask to help restaurants reduce cost and food loss. Deployed with Google App Engine.</p>
+          <a href="https://github.com/yeelaiii/Food_Predictor_App" target="_blank" style="color: var(--accent);">View Repo</a>
+        </div>
+
+        <div class="project-card">
+          <h3>📱 Bond Pricing App (Android)</h3>
+          <p>An Android app for bond valuation using bisection and builder/strategy design patterns.</p>
+          <a href="#" target="_blank" style="color: var(--accent);">Coming Soon</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:elijahjie@gmail.com" style="color: var(--accent);">elijahjie@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/yeelaiii" target="_blank" style="color: var(--accent);">github.com/yeelaiii</a></p>
+    </section>
+  </main>
 </body>
 </html>
