@@ -12,7 +12,14 @@
       --accent: #004080;
       --border: #ddd;
       --section-bg: #f8f9fa;
-      --font: 'Segoe UI', sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --main-bg: #121212;
+      --main-text: #f0f0f0;
+      --accent: #66b2ff;
+      --border: #333;
+      --section-bg: #1e1e1e;
     }
 
     * {
@@ -24,15 +31,61 @@
     body {
       background-color: var(--main-bg);
       color: var(--main-text);
-      font-family: var(--font);
+      font-family: 'Segoe UI', sans-serif;
       line-height: 1.6;
-      padding: 40px 20px;
       overflow-x: hidden;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: var(--section-bg);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar a {
+      color: var(--main-text);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: var(--accent);
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      background: none;
+      border-radius: 5px;
+      color: var(--main-text);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
 
     header {
       text-align: center;
       margin-bottom: 60px;
+    }
+
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      object-fit: cover;
     }
 
     header h1 {
@@ -41,14 +94,9 @@
     }
 
     header p {
-      color: #555;
+      color: var(--main-text);
       font-size: 1.1rem;
       margin-top: 10px;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
     }
 
     .section {
@@ -67,22 +115,22 @@
       color: var(--accent);
     }
 
-    p, li {
-      font-size: 1rem;
-      color: #333;
-    }
-
     ul {
       list-style-type: none;
       padding-left: 0;
     }
 
-    li a {
+    li, p {
+      font-size: 1rem;
+      color: var(--main-text);
+    }
+
+    a {
       color: var(--accent);
       text-decoration: none;
     }
 
-    li a:hover {
+    a:hover {
       text-decoration: underline;
     }
 
@@ -104,9 +152,20 @@
     }
   </style>
 </head>
-<body>
+<body data-theme="light">
+  <div class="navbar">
+    <div>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+  </div>
+
   <div class="container">
     <header>
+      <img src="https://avatars.githubusercontent.com/u/100000000?v=4" alt="Elijah Soon">
       <h1 id="name">Elijah Soon</h1>
       <p id="tagline">Software Developer · Cybersecurity Enthusiast · National Athlete</p>
     </header>
@@ -140,18 +199,9 @@
     <div class="section" id="projects">
       <h2>Projects</h2>
       <ul>
-        <li>
-          <strong>FELIX (FPGA Reaction Game)</strong> — 
-          <a href="https://github.com/yeelaiii/felix-fpga" target="_blank">View Code</a>
-        </li>
-        <li>
-          <strong>Food Waste Predictor</strong> — 
-          <a href="https://github.com/yeelaiii/food-waste-predictor" target="_blank">View Code</a>
-        </li>
-        <li>
-          <strong>Bond Pricing App (Android)</strong> — 
-          <a href="https://github.com/yeelaiii/bond-app" target="_blank">View Code</a>
-        </li>
+        <li><strong>FELIX (FPGA Reaction Game)</strong> — <a href="https://github.com/yeelaiii/felix-fpga" target="_blank">View Code</a></li>
+        <li><strong>Food Waste Predictor</strong> — <a href="https://github.com/yeelaiii/food-waste-predictor" target="_blank">View Code</a></li>
+        <li><strong>Bond Pricing App (Android)</strong> — <a href="https://github.com/yeelaiii/bond-app" target="_blank">View Code</a></li>
       </ul>
     </div>
 
@@ -159,6 +209,7 @@
       <h2>Contact</h2>
       <p>Email: <a href="mailto:elijahjie@gmail.com">elijahjie@gmail.com</a></p>
       <p>GitHub: <a href="https://github.com/yeelaiii" target="_blank">github.com/yeelaiii</a></p>
+      <p><a href="/Elijah_Soon_-_University_Intern.pdf" download>Download Resume (PDF)</a></p>
     </div>
 
     <footer>
@@ -189,6 +240,12 @@
       duration: 1,
       ease: "power2.out"
     });
+
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute("data-theme");
+      body.setAttribute("data-theme", currentTheme === "light" ? "dark" : "light");
+    }
   </script>
 </body>
 </html>
