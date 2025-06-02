@@ -32,23 +32,26 @@
 
     .navbar {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 20px 40px;
-      background: var(--section-bg);
-      position: sticky;
+      padding: 20px 0;
+      position: fixed;
       top: 0;
-      z-index: 10;
+      left: 0;
+      width: 100%;
+      background: var(--section-bg);
+      z-index: 100;
       backdrop-filter: var(--glass-blur);
       border-bottom: 1px solid var(--border);
     }
 
     .navbar a {
       color: var(--main-text);
-      margin: 0 15px;
+      margin: 0 25px;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       position: relative;
+      font-size: 1rem;
     }
 
     .navbar a::after {
@@ -60,28 +63,31 @@
       height: 2px;
       background: var(--accent);
       transform: scaleX(0);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease-in-out;
       transform-origin: right;
     }
 
-    .navbar a:hover::after {
+    .navbar a:hover::after,
+    .navbar a.active::after {
       transform: scaleX(1);
       transform-origin: left;
     }
 
     .toggle-btn {
-      cursor: pointer;
+      position: absolute;
+      right: 30px;
       padding: 6px 12px;
       border: 1px solid var(--border);
       background: none;
       border-radius: 5px;
       color: var(--main-text);
+      cursor: pointer;
     }
 
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0;
+      padding-top: 100px;
     }
 
     header.hero {
@@ -93,7 +99,6 @@
       text-align: center;
       padding: 40px 20px;
       background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a);
-      position: relative;
     }
 
     header.hero h1 {
@@ -194,12 +199,10 @@
 </head>
 <body data-theme="dark">
   <div class="navbar">
-    <div>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
     <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
   </div>
 
