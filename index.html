@@ -417,10 +417,12 @@
 
   <script>
     function toggleTheme() {
-      const body = document.body;
-      const current = body.getAttribute("data-theme");
-      body.setAttribute("data-theme", current === "light" ? "dark" : "light");
-    }
+  const body = document.body;
+  const current = body.getAttribute("data-theme") || 'dark';
+  const newTheme = current === "light" ? "dark" : "light";
+  body.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+}
   </script>
 <div class="modal" id="projectModal">
   <div class="modal-close" onclick="closeModal()">&times;</div>
@@ -451,7 +453,7 @@
       title: 'FELIX – FPGA Reaction Game',
       image: 'https://raw.githubusercontent.com/yeelaiii/felix-fpga/main/preview.png',
       description: 'Arcade-style memory and reaction game using Lucid on Alchitry Au FPGA.',
-      link: 'https://github.com/yeelaiii/felix-fpga'
+      link: 'https://github.com/50002-computation-structures/1d-project-cl01-group-11'
     },
     food: {
       title: 'Food Waste Predictor',
@@ -484,6 +486,13 @@
     document.getElementById('projectModal').style.display = 'none';
   }
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    document.body.setAttribute("data-theme", savedTheme);
+  });
+</script>
 </body>
 </html>
+
 
