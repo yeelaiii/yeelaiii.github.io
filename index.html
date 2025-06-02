@@ -195,7 +195,61 @@
       0% { opacity: 0; transform: translateY(40px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-  </style>
+    .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .project-card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  }
+
+  .project-thumb {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .project-info {
+    padding: 20px;
+  }
+
+  .project-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: var(--accent);
+  }
+
+  .project-info p {
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-bottom: 10px;
+  }
+
+  .project-info a {
+    font-weight: bold;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .project-info a:hover {
+    text-decoration: underline;
+  }
+
+</style>
 </head>
 <body data-theme="dark">
   <div class="navbar">
@@ -232,11 +286,36 @@
     </div>
 
     <div class="section" id="projects">
-      <h2>Projects</h2>
-      <div class="project-card">
-        <strong>FELIX – FPGA Reaction Game</strong><br>
-        <a href="https://github.com/yeelaiii/felix-fpga" target="_blank">View Code</a>
+  <h2>Projects</h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <img src="https://raw.githubusercontent.com/yeelaiii/felix-fpga/main/preview.png" alt="FELIX Game Screenshot" class="project-thumb">
+      <div class="project-info">
+        <h3>FELIX – FPGA Reaction Game</h3>
+        <p>Arcade-style memory and reaction game using LEDs and buttons, implemented in Lucid on Alchitry Au FPGA.</p>
+        <a href="https://github.com/yeelaiii/felix-fpga" target="_blank">View Code →</a>
       </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://raw.githubusercontent.com/yeelaiii/food-waste-predictor/main/preview.png" alt="Food Waste Predictor Screenshot" class="project-thumb">
+      <div class="project-info">
+        <h3>Food Waste Predictor</h3>
+        <p>Predictive ML model for restaurant food wastage in India. Designed to cut operational costs using regression models.</p>
+        <a href="https://github.com/yeelaiii/food-waste-predictor" target="_blank">View Code →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://raw.githubusercontent.com/yeelaiii/bond-app/main/preview.png" alt="Bond App Screenshot" class="project-thumb">
+      <div class="project-info">
+        <h3>Bond Pricing App (Android)</h3>
+        <p>Android app that calculates bond prices using strategy and builder patterns. Includes interactive UI and SQLite backend.</p>
+        <a href="https://github.com/yeelaiii/bond-app" target="_blank">View Code →</a>
+      </div>
+    </div>
+  </div>
+</div>
       <div class="project-card">
         <strong>Food Waste Predictor</strong><br>
         <a href="https://github.com/yeelaiii/food-waste-predictor" target="_blank">View Code</a>
