@@ -249,6 +249,63 @@
     text-decoration: underline;
   }
 
+  .filter-buttons {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .filter-buttons button {
+    background: none;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 6px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .filter-buttons button.active,
+  .filter-buttons button:hover {
+    background: var(--accent);
+    color: black;
+  }
+  .project-card.hidden {
+    display: none;
+  }
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+  }
+  .modal-content {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    color: white;
+  }
+  .modal-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body data-theme="dark">
@@ -286,9 +343,15 @@
     </div>
 
     <div class="section" id="projects">
+  <div class="filter-buttons">
+    <button class="active" onclick="filterProjects('all')">All</button>
+    <button onclick="filterProjects('hardware')">Hardware</button>
+    <button onclick="filterProjects('ml')">ML</button>
+    <button onclick="filterProjects('android')">Android</button>
+  </div>
   <h2>Projects</h2>
   <div class="project-grid">
-    <div class="project-card">
+    <div class="project-card" data-type="android" onclick="openModal('bond')">data-type="ml" onclick="openModal('food')">data-type="hardware" onclick="openModal('felix')">
       <img src="https://raw.githubusercontent.com/yeelaiii/felix-fpga/main/preview.png" alt="FELIX Game Screenshot" class="project-thumb">
       <div class="project-info">
         <h3>FELIX – FPGA Reaction Game</h3>
@@ -316,14 +379,8 @@
     </div>
   </div>
 </div>
-      <div class="project-card">
-        <strong>Food Waste Predictor</strong><br>
-        <a href="https://github.com/yeelaiii/food-waste-predictor" target="_blank">View Code</a>
-      </div>
-      <div class="project-card">
-        <strong>Bond Pricing App (Android)</strong><br>
-        <a href="https://github.com/yeelaiii/bond-app" target="_blank">View Code</a>
-      </div>
+      
+      
     </div>
 
     <div class="section" id="contact">
@@ -345,5 +402,68 @@
       body.setAttribute("data-theme", current === "light" ? "dark" : "light");
     }
   </script>
+<div class="modal" id="projectModal">
+  <div class="modal-close" onclick="closeModal()">&times;</div>
+  <div class="modal-content" id="modalContent"></div>
+</div>
+
+<script>
+  function toggleTheme() {
+    const body = document.body;
+    const current = body.getAttribute("data-theme");
+    body.setAttribute("data-theme", current === "light" ? "dark" : "light");
+  }
+
+  function filterProjects(type) {
+    document.querySelectorAll('.filter-buttons button').forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.filter-buttons button[onclick*="${type}"]`).classList.add('active');
+    document.querySelectorAll('.project-card').forEach(card => {
+      if (type === 'all' || card.dataset.type === type) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  const modalData = {
+    felix: {
+      title: 'FELIX – FPGA Reaction Game',
+      image: 'https://raw.githubusercontent.com/yeelaiii/felix-fpga/main/preview.png',
+      description: 'Arcade-style memory and reaction game using Lucid on Alchitry Au FPGA.',
+      link: 'https://github.com/yeelaiii/felix-fpga'
+    },
+    food: {
+      title: 'Food Waste Predictor',
+      image: 'https://raw.githubusercontent.com/yeelaiii/food-waste-predictor/main/preview.png',
+      description: 'ML model to forecast restaurant food waste in India.',
+      link: 'https://github.com/yeelaiii/food-waste-predictor'
+    },
+    bond: {
+      title: 'Bond Pricing App (Android)',
+      image: 'https://raw.githubusercontent.com/yeelaiii/bond-app/main/preview.png',
+      description: 'Android app to compute bond prices using strategy and builder design patterns.',
+      link: 'https://github.com/yeelaiii/bond-app'
+    }
+  };
+
+  function openModal(key) {
+    const modal = document.getElementById('projectModal');
+    const content = document.getElementById('modalContent');
+    const data = modalData[key];
+    content.innerHTML = `
+      <h2>${data.title}</h2>
+      <img src="${data.image}" alt="${data.title}" />
+      <p>${data.description}</p>
+      <a href="${data.link}" target="_blank">View on GitHub</a>
+    `;
+    modal.style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('projectModal').style.display = 'none';
+  }
+</script>
 </body>
 </html>
+
