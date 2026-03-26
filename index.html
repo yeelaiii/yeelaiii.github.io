@@ -551,6 +551,7 @@
   <div class="nav-logo">elijah<span>@sutd</span>:~$</div>
   <div class="nav-links">
     <a href="#about">about</a>
+    <a href="#experience">experience</a>
     <a href="#projects">projects</a>
     <a href="#contact">contact</a>
   </div>
@@ -591,19 +592,23 @@
   <div class="about-grid">
     <div class="about-text">
       <p>
-        I'm a Computer Science and Design undergraduate at SUTD with a focus on
-        cybersecurity research, systems engineering, and software development. I interned
-        at <strong style="color:#eaf1ff">MINDEF</strong> as a software developer, building
-        automation tools for contract management and conducting security research.
+        I'm a Computer Science and Design undergraduate at SUTD, minoring in AI,
+        with deep expertise in <strong style="color:#eaf1ff">Windows internals</strong>,
+        Sysmon telemetry analysis, and kernel-level event tracing. I've done two stints
+        at <strong style="color:#eaf1ff">MINDEF</strong> — first as a Software Developer,
+        then as a Cybersecurity Research intern where I reverse-tested detection pipelines
+        and presented findings to senior defence stakeholders.
       </p>
       <p>
-        Currently preparing for the <strong style="color:#eaf1ff">OSCP</strong> certification
-        and holding a CCNA in networking. My research interests include mobile security,
-        attack reproduction, detection evasion, and defensive tooling.
+        My interests span offensive security research, full-stack development, and ML systems.
+        I hold a <strong style="color:#eaf1ff">CCNA</strong> and am actively working towards
+        OSCP. I've competed in CTFs (binary exploitation, log analysis, system investigation)
+        and was recognised as <strong style="color:#eaf1ff">Best Project among 200 teams</strong>
+        for my ML food wastage prediction system.
       </p>
       <p>
-        Outside of tech, I represent Singapore as a national weightlifter —
-        a discipline that has shaped my approach to long-form, deliberate practice.
+        Outside of tech, I'm a national weightlifter representing Singapore —
+        a discipline that trains deliberate, long-form practice.
         <a href="https://www.swf.org.sg/athletes/elijah-soon" target="_blank">View my SWF profile →</a>
       </p>
     </div>
@@ -613,28 +618,34 @@
         <div class="skill-pills">
           <span class="pill pill-blue">Python</span>
           <span class="pill pill-blue">Java</span>
-          <span class="pill pill-blue">C</span>
           <span class="pill pill-blue">JavaScript</span>
+          <span class="pill pill-blue">React</span>
+          <span class="pill pill-blue">Node.js</span>
+          <span class="pill pill-blue">C</span>
           <span class="pill pill-blue">SQL</span>
         </div>
       </div>
       <div>
         <div class="skill-group-label">Security</div>
         <div class="skill-pills">
-          <span class="pill pill-purple">OSCP (prep)</span>
+          <span class="pill pill-purple">Windows Internals</span>
+          <span class="pill pill-purple">Sysmon / ETW</span>
+          <span class="pill pill-purple">Black-box Testing</span>
+          <span class="pill pill-purple">CTF (binary, log)</span>
           <span class="pill pill-purple">CCNA</span>
-          <span class="pill pill-purple">Threat Analysis</span>
-          <span class="pill pill-purple">Evasion Research</span>
+          <span class="pill pill-purple">OSCP (prep)</span>
         </div>
       </div>
       <div>
         <div class="skill-group-label">Tools & Platforms</div>
         <div class="skill-pills">
+          <span class="pill pill-green">WinDbg</span>
+          <span class="pill pill-green">fltmc</span>
+          <span class="pill pill-green">PerfMon</span>
           <span class="pill pill-green">Linux</span>
-          <span class="pill pill-green">Git</span>
-          <span class="pill pill-green">Flask</span>
-          <span class="pill pill-green">Android</span>
           <span class="pill pill-green">FPGA</span>
+          <span class="pill pill-green">Flask</span>
+          <span class="pill pill-green">MongoDB</span>
           <span class="pill pill-green">GCP</span>
         </div>
       </div>
@@ -644,30 +655,127 @@
 
 <hr class="divider">
 
-<!-- Projects -->
+<!-- Experience -->
+<section id="experience" class="section">
+  <div class="section-label">02 &nbsp;/&nbsp; experience</div>
+  <h2>Work Experience</h2>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-date">Sept 2025 – Jan 2026</div>
+        <div class="exp-org">Ministry of Defence, SG</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Cybersecurity Research Attachment</div>
+        <ul class="exp-bullets">
+          <li>Conducted deep technical analysis of Sysmon internals — kernel callbacks to EVTX storage</li>
+          <li>Investigated structural weaknesses and reproduced documented evasion techniques in controlled environments</li>
+          <li>Conducted research on RF signal behaviour, Wi-Fi protocols, and drone communication vulnerabilities</li>
+          <li>Presented structured findings and risk implications to senior defence stakeholders</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-date">Apr 2024 – Jul 2024</div>
+        <div class="exp-org">Ministry of Defence, SG</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Software Developer</div>
+        <ul class="exp-bullets">
+          <li>Designed and implemented automated contract monitoring systems with secure login and permission controls</li>
+          <li>Developed automated email notification pipelines for contract lifecycle tracking</li>
+          <li>Enhanced data integrity mechanisms and structured access control frameworks</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-date">Jan 2025</div>
+        <div class="exp-org">Etiqa Insurance</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Freelance Developer</div>
+        <ul class="exp-bullets">
+          <li>Built automated budgeting and financial tracking tools</li>
+          <li>Developed a secure algorithm-based lucky draw ensuring fairness, transparency, and auditability</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.exp-list { display: flex; flex-direction: column; gap: 0; }
+.exp-item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border2);
+  align-items: start;
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-date { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 6px; }
+.exp-org { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.exp-role { font-family: var(--mono); font-size: 0.95rem; color: #eaf1ff; font-weight: 700; margin-bottom: 14px; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.exp-bullets li { font-size: 0.92rem; color: #6a7d96; font-weight: 300; padding-left: 16px; position: relative; line-height: 1.6; }
+.exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); opacity: 0.5; }
+@media (max-width: 700px) {
+  .exp-item { grid-template-columns: 1fr; gap: 8px; }
+}
+</style>
+
+<hr class="divider">
 <section id="projects" class="section">
-  <div class="section-label">02 &nbsp;/&nbsp; projects</div>
+  <div class="section-label">03 &nbsp;/&nbsp; projects</div>
   <h2>Selected Work</h2>
   <div class="projects-grid">
 
     <div class="project-card">
-      <span class="project-icon">⬡</span>
-      <h3>FELIX — FPGA Reaction Game</h3>
-      <p>Real-time LED memory game using FSMs and a custom CPU on an Alchitry FPGA. Designed hardware-level game logic in Lucid HDL.</p>
-      <a class="project-link" href="https://github.com/50002-computation-structures/1d-project-cl01-group-11/blob/main/2025-50002-Group11.alp" target="_blank">View project</a>
+      <span class="project-icon">🔬</span>
+      <h3>Windows Sysmon Deep Telemetry Research</h3>
+      <p>Analysed Sysmon internals — kernel callbacks, ETW providers, minifilter drivers. Reverse-tested config filtering logic, validated telemetry sources with WinDbg, fltmc & PerfMon. Mapped the full event pipeline from kernel trigger to EVTX storage. Presented findings to MINDEF senior stakeholders.</p>
+      <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted)">Python · WinDbg · Windows Internals</span>
     </div>
 
     <div class="project-card">
       <span class="project-icon">◈</span>
-      <h3>Food Waste Predictor</h3>
-      <p>ML-powered Flask app helping restaurants forecast and reduce food waste. Trained on real operational data and deployed via Google App Engine.</p>
+      <h3>Food Waste Predictor <span style="font-family:var(--mono);font-size:0.7rem;color:var(--green);margin-left:8px">🏆 Best Project / 200 teams</span></h3>
+      <p>ML model integrated into a full-stack Flask web app to help restaurants reduce food waste. Built the complete data pipeline, preprocessing workflow, and GCP deployment architecture.</p>
       <a class="project-link" href="https://github.com/yeelaiii/Food_Predictor_App" target="_blank">View repo</a>
     </div>
 
     <div class="project-card">
+      <span class="project-icon">🏨</span>
+      <h3>Full-Stack Hotel Booking Platform</h3>
+      <p>React frontend with Node/Express backend, MongoDB & MySQL database architecture. Implemented dynamic search, filtering, booking logic, and scalable system design for loyalty integration.</p>
+      <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted)">React · Node.js · MongoDB · MySQL</span>
+    </div>
+
+    <div class="project-card">
+      <span class="project-icon">⬡</span>
+      <h3>FELIX — FPGA Reaction Game</h3>
+      <p>Real-time LED memory game built with FSMs and a custom CPU on an Alchitry FPGA. Designed hardware-level game logic in Lucid HDL with full timing control.</p>
+      <a class="project-link" href="https://github.com/50002-computation-structures/1d-project-cl01-group-11/blob/main/2025-50002-Group11.alp" target="_blank">View project</a>
+    </div>
+
+    <div class="project-card">
+      <span class="project-icon">🔐</span>
+      <h3>Secure Lucky Draw System — Etiqa Insurance</h3>
+      <p>Built a fairness-auditable algorithm-based lucky draw and automated budgeting/financial tracking tools for Etiqa Insurance as a freelance developer.</p>
+      <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted)">Python · Automation</span>
+    </div>
+
+    <div class="project-card">
       <span class="project-icon">◎</span>
-      <h3>Bond Pricing App</h3>
-      <p>Android application for bond valuation using bisection algorithm and design patterns including Builder and Strategy. Clean architecture throughout.</p>
+      <h3>Bond Pricing App (Android)</h3>
+      <p>Android application for bond valuation using the bisection algorithm with clean architecture and design patterns — Builder and Strategy throughout.</p>
       <a class="project-link" href="#" style="color: var(--muted); pointer-events:none;">Coming soon</a>
     </div>
 
@@ -678,7 +786,7 @@
 
 <!-- Contact -->
 <section id="contact" class="section">
-  <div class="section-label">03 &nbsp;/&nbsp; contact</div>
+  <div class="section-label">04 &nbsp;/&nbsp; contact</div>
   <h2>Get In Touch</h2>
   <div class="contact-grid">
     <div>
@@ -721,19 +829,8 @@
         <div class="t-out"><span class="t-highlight">cybersecurity</span> | mobile security</div>
         <div class="t-out">attack research | defensive tooling</div>
         <div class="t-out">software engineering | data</div>
-        <div class="t-line"><span class="t-prompt">~$</span><span class="t-cmd">ping elijahjie@gmail.com<span style="animation: blink 1s step-end infinite; color:var(--accent)">█</span></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span style="color:var(--accent)">elijah soon</span> &nbsp;·&nbsp; built with HTML &nbsp;·&nbsp; © 2026
-</footer>
-
-<style>
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-</style>
-
-</body>
-</html>
+        <div class="t-line"><span class="t-prompt">~$</span><span class="t-cmd">cat awards.txt</span></div>
+        <div class="t-out"><span class="t-val">🏆</span> Best Project / 200 teams (ML)</div>
+        <div class="t-out"><span class="t-val">🏆</span> VEX Robotics World Champion 2017</div>
+        <div class="t-line"><span class="t-prompt">~$</span><span class="t-cmd">ping elijahjie@gmail.com <span style="animation: blink 1s step-end infinite; color:var(--accent)">█</span></span></div>
+      </
